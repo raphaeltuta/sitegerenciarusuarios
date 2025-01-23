@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ usuarios.nome }} - Detalhes</title>
+</head>
+<body>
+    {% if usuarios %}
+        <div>
+            <p>ID: {{ usuarios.id }}</p>
+            <p>Nome: {{ usuarios.nome }}</p>
+            <p>Função: {{ usuarios.funcao }}</p>
+            <p>E-mail: {{ usuarios.email }}</p>
+            <p>Senha: {{ usuarios.senha }}</p>
+        </div>
+        <br>
+        <h2>Editar</h2>
+        <br>
+        <form action="/usuario/{{ usuarios.id }}" method="post">
+            <input type="text" name="nome" id="nome" required placeholder="Nome" value="{{ usuarios.nome }}"><br>
+            <input type="email" name="email" id="email" required placeholder="E-mail" value="{{ usuarios.email }}"><br>
+            <input type="password" name="senha" id="senha" required placeholder="Senha"><br>
+            <input type="text" name="funcao" id="funcao" required placeholder="Função" value="{{ usuarios.funcao }}"><br>
+            <button type="submit">Atualizar</button>
+        </form>
+    {% else %}
+        <p>Usuário não encontrado.</p>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('lista_usuarios') }}">Voltar</a>
+</body>
+</html>

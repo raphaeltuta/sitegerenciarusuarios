@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/lista.css">
+    <title>Listar Usuários</title>
+</head>
+<body>
+    <a href="{{ url_for('home') }}">Voltar</a>
+    <h1>Lista de Usuários</h1>
+    {% if usuarios %}
+        {% for usuario in usuarios %}
+            <div>
+                <p>ID: {{ usuario.id }}</p>
+                <p>Nome: {{ usuario.nome }}</p>
+                <a href="/usuario/{{ usuario.id }}">Ver detalhes</a> | <a href="/deletar/{{ usuario.id }}">Deletar</a>
+                <hr>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Nenhum usuário encontrado.</p>
+    {% endif %}
+</body>
+</html>

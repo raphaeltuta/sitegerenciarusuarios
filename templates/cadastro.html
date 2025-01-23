@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar usuario</title>
+</head>
+<body>
+    <h1>Cadastrar Usuario</h1>
+    <form action="{{ url_for('cadastrar_usuario') }}" method="post">
+        <input type="text" name="nome" id="nome" required placeholder="Nome"><br>
+        <input type="email" name="email" id="email" required placeholder="E-mail"><br>
+        <input type="password" name="senha" id="senha" required placeholder="Senha"><br>
+        <input type="text" name="funcao" id="funcao" required placeholder="Funçao"><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
